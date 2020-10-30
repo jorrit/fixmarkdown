@@ -63,8 +63,11 @@ export default function fixMarkdown(input: string) {
       --stackPosition;
     }
 
-    output.push(input.substring(inputPosition, firstSymbolPosition + 2));
-    inputPosition = firstSymbolPosition + 2;
+    // Add part of input including symbol to output.
+    output.push(
+      input.substring(inputPosition, firstSymbolPosition + firstSymbol.length)
+    );
+    inputPosition = firstSymbolPosition + firstSymbol.length;
   }
 
   return output.join('');
