@@ -32,6 +32,12 @@ test('Three open markdown', () => {
   expect(fixMarkdown('~~**~~a\nb~~**~~')).toBe('~~**~~a~~**~~\n~~**~~b~~**~~');
 });
 
+test('Mixed single and double symbols', () => {
+  expect(fixMarkdown('* a * ** b **')).toBe('* a * ** b **');
+  expect(fixMarkdown('* a *\n** b **')).toBe('* a *\n** b **');
+  expect(fixMarkdown('*** a ***')).toBe('*** a ***');
+});
+
 test('Lennart', () => {
   const input = '**dit** is ~~regel 1 **en\ndit is regel** 2~~ cool he';
   const expected =

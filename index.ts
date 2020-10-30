@@ -1,5 +1,5 @@
 export default function fixMarkdown(input: string) {
-  const symbols = ['~~', '**', '\n'];
+  const symbols = ['~~', '**', '*', '\n'];
   const stack: (string | null)[] = [null, null, null];
   const inputLength = input.length;
   const output = [];
